@@ -169,7 +169,7 @@ class Construct(commands.Cog):
 
             if amount < field:
                 infra.update({field: field - amount}).execute()
-                
+
                 if amount == 1:
                     demo_done = discord.Embed(colour=0xdd7878, title='Demolish', type='rich',
                                             description=f'{amount:,} {structures[build_id][0]} was demolished.')
