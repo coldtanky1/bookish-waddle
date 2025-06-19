@@ -27,6 +27,8 @@ class Mil(BaseModel):
     recruiting_time_left = IntegerField(default=0) # this is to ensure that if the bot stops running, the player doesn't have to wait or recruit again.
     in_recruitment = IntegerField(default=0)
 
+    military_tactic = TextField(default="")
+
 class Infra(BaseModel):
     user_id = IntegerField(primary_key=True)
 

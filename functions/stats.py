@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 
 from db import Info, Mil, Nation
+from functions.construct import Construct
 
 class Stats(commands.Cog):
     def __init__(self, bot):
@@ -73,3 +74,7 @@ class Stats(commands.Cog):
                                   description=f'You do not have a nation.\n'
                                               f'To create one, type `$create [NATION_NAME]`.')
             await ctx.send(embed=embed)
+
+
+async def setup(bot):
+    await bot.add_cog(Stats(bot))

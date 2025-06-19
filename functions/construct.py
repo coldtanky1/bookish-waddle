@@ -189,3 +189,8 @@ class Construct(commands.Cog):
                                   description=f'You do not have a nation.\n'
                                               f'To create one, type `$create [NATION_NAME]`.')
             await ctx.send(embed=embed)
+
+
+
+async def setup(bot):
+    await bot.add_cog(Construct(bot))

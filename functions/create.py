@@ -48,3 +48,7 @@ class Create(commands.Cog):
             color=0x5BF9A0
         )
         await ctx.send(embed=embed)
+
+
+async def setup(bot):
+    await bot.add_cog(Create(bot))
