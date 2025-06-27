@@ -17,6 +17,10 @@ class Nation(BaseModel):
     pop = IntegerField(default=20_000) # magic value
     balance = IntegerField(default=100_000) # magic value
 
+    # bonuses
+    admin_production_bonus = IntegerField(default=1)
+    pop_multiplier = IntegerField(default=1)
+
 class Mil(BaseModel):
     user_id = IntegerField(primary_key=True)
     troops = IntegerField(default=5_000)
@@ -28,6 +32,10 @@ class Mil(BaseModel):
     in_recruitment = IntegerField(default=0)
 
     military_tactic = TextField(default="")
+
+    # bonuses
+    mil_tactic_bonus = IntegerField(default=1)
+    admin_mil_tactic_bonus = IntegerField(default=1)
 
 class Infra(BaseModel):
     user_id = IntegerField(primary_key=True)

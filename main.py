@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# she be banging on my python
+
 import os
 import discord
 from discord.ext import commands

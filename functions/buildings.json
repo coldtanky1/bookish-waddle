@@ -1,0 +1,93 @@
+{
+  "iron_mine": {
+      "type": "raw",
+      "construction": {"wood": 100, "steel": 50, "currency": 500},
+      "inputs": {},
+      "output": {"iron_ore": 100},
+      "upkeep": {"currency": 20}
+  },
+  "coal_mine": {
+      "type": "raw",
+      "construction": {"wood": 100, "steel": 50, "currency": 500},
+      "inputs": {},
+      "output": {"coal": 100},
+      "upkeep": {"currency": 20}
+  },
+  "oil_well": {
+      "type": "raw",
+      "construction": {"wood": 150, "steel": 75, "currency": 750},
+      "inputs": {},
+      "output": {"oil": 50},
+      "upkeep": {"currency": 25}
+  },
+  "lumber_camp": {
+      "type": "raw",
+      "construction": {"wood": 75, "steel": 25, "currency": 300},
+      "inputs": {},
+      "output": {"wood": 100},
+      "upkeep": {"currency": 15}
+  },
+  "grain_farm": {
+      "type": "raw",
+      "construction": {"wood": 75, "steel": 25, "currency": 300},
+      "inputs": {},
+      "output": {"grain": 100},
+      "upkeep": {"currency": 10}
+  },
+  "water_plant": {
+      "type": "raw",
+      "construction": {"wood": 100, "steel": 40, "currency": 400},
+      "inputs": {},
+      "output": {"water": 200},
+      "upkeep": {"currency": 20}
+  },
+  "steel_mill": {
+      "type": "manufactured",
+      "construction": {"wood": 150, "steel": 100, "currency": 1000},
+      "inputs": {"iron_ore": 100, "coal": 50},
+      "output": {"steel": 75},
+      "upkeep": {"currency": 50}
+  },
+  "sawmill": {
+      "type": "manufactured",
+      "construction": {"wood": 100, "steel": 50, "currency": 500},
+      "inputs": {"wood": 100},
+      "output": {"planks": 75},
+      "upkeep": {"currency": 25}
+  },
+  "flour_mill": {
+      "type": "manufactured",
+      "construction": {"wood": 100, "steel": 50, "currency": 500},
+      "inputs": {"grain": 100},
+      "output": {"flour": 80},
+      "upkeep": {"currency": 20}
+  },
+  "food_processing": {
+      "type": "manufactured",
+      "construction": {"wood": 120, "steel": 60, "currency": 600},
+      "inputs": {"grain": 50, "water": 50},
+      "output": {"processed_food": 80},
+      "upkeep": {"currency": 30}
+  },
+  "oil_refinery": {
+      "type": "manufactured",
+      "construction": {"wood": 200, "steel": 150, "currency": 1200},
+      "inputs": {"oil": 50},
+      "output": {"petrol": 40},
+      "upkeep": {"currency": 40}
+  },
+  "cement_plant": {
+      "type": "manufactured",
+      "construction": {"wood": 100, "steel": 75, "currency": 700},
+      "inputs": {"wood": 100, "water": 50},
+      "output": {"concrete": 70},
+      "upkeep": {"currency": 30}
+  },
+  "electronics_factory": {
+      "type": "manufactured",
+      "construction": {"wood": 150, "steel": 100, "currency": 1000},
+      "inputs": {"steel": 30, "petrol": 30},
+      "output": {"electronics": 40},
+      "upkeep": {"currency": 50}
+  }
+}
