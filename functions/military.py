@@ -128,12 +128,63 @@ class Military(commands.Cog):
             return
 
     @commands.command()
-    async def tactic(self, ctx):
+    async def doctrine(self, ctx, doctrine: int = 0):
         user_id = ctx.author.id
 
-        #TODO: Implement later.
+        doctrines = [
+            "Mobile Warfare",
+            "Superior Firepower",
+            "Grand Battleplan",
+            "Mass Assault",
+            "Strategic Destruction",
+            "Battlefield Support",
+        ]
 
+        if doctrine == 0:
+            embed = discord.Embed(color=0x780DDB, title="Military Doctrines", type='rich',
+                                  description="Displays all the military doctrines.")
 
+            embed.add_field(name="Land Doctrines", value="\n", inline=False)
+            for index, ld in enumerate(doctrines[:4], start=1):
+                value = f"{index}. " + "".join(ld)
+                embed.add_field(name="", value=value, inline=False)
+
+            embed.add_field(name="Air Doctrines", value="\n", inline=False)
+            for index, ad in enumerate(doctrines[4:], start=5):
+                value = f"{index}. " + "".join(ad)
+                embed.add_field(name="", value=value, inline=False)
+
+            await ctx.send(embed=embed)
+
+        else:
+
+            if doctrine > 6:
+                embed = discord.Embed(colour=0xEF2F73, title="Error", type='rich',
+                                                description="Please input a valid number.")
+                await ctx.send(embed=embed)
+
+            if Info.get_or_none(Info.user_id==user_id) is not None:
+                embed = discord.Embed(color=discord.Color.dark_teal(), title="Setting military doctrine", type='rich',
+                                    description=f"setting your military doctrine to {doctrines[doctrine-1]}")
+                embed.set_footer(text="Use `$doctrine` to see a list of doctrines.")
+                setting_embed = await ctx.send(embed=embed)
+
+                if doctrine == 5 or doctrine == 6:
+                    Mil.update(mil_air_doctrine=doctrines[doctrine-1]).execute()
+                else:
+                    Mil.update(mil_ground_doctrine=doctrines[doctrine-1]).execute()
+
+                done_embed = discord.Embed(color=discord.Color.green(), title="Setting military doctrine", type='rich',
+                                        description="Your military doctrine has been set successfully.")
+                done_embed.set_footer(text="Use `$doctrine` to see a list of doctrines.")
+                await setting_embed.edit(embed=done_embed)
+
+            else:
+                embed = discord.Embed(colour=0xEF2F73, title="Error", type='rich',
+                                    description=f'You do not have a nation.\n'
+                                                f'To create one, type `$create [NATION_NAME]`.')
+                await ctx.send(embed=embed)
+                return
 
 async def setup(bot):
     await bot.add_cog(Military(bot))

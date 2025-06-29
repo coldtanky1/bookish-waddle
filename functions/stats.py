@@ -2,7 +2,6 @@ import discord
 from discord.ext import commands
 
 from db import Info, Mil, Nation
-from functions.construct import Construct
 
 class Stats(commands.Cog):
     def __init__(self, bot):
@@ -25,14 +24,10 @@ class Stats(commands.Cog):
                 color=0x04a5e5
             )
             embed.add_field(name="", value="\n"
-                f"\U0001fac5 Ruler: <@{user_id}>\n"
-                f"\U0001f60a Happiness: {nation.happiness}", inline=False)
-
-            embed.add_field(name="", value="\n"
-                f"\U0001f4b0 Balance: {nation.balance}", inline=False)
-
-            embed.add_field(name="", value="\n"
-                f"\U0001f482 Population: {nation.pop}")
+                f"\U0001fac5 Ruler: <@{user_id}>", inline=False)
+            embed.add_field(name="", value=f"\U0001f60a Happiness: {nation.happiness:,}", inline=False)
+            embed.add_field(name="", value=f"\U0001f4b0 Balance: {nation.balance:,}", inline=False)
+            embed.add_field(name="", value=f"👬 Population: {nation.pop:,}")
 
             await ctx.send(embed=embed)
 
@@ -60,12 +55,14 @@ class Stats(commands.Cog):
                 color=0xe64553
             )
 
-            embed.add_field(name="\U0001fa96 Troops", value=f"{milstats.troops:,}\n", inline=False)
+            embed.add_field(name="💂 Troops", value=f"{milstats.troops:,}\n", inline=False)
             embed.add_field(name="\u26df Tanks", value=f"{milstats.tanks:,}\n", inline=False)
             embed.add_field(name="\U0001f4a5 Artillery", value=f"{milstats.artillery:,}\n", inline=False)
             embed.add_field(name="\U0001f4a5 Anti-Air", value=f"{milstats.anti_air:,}\n", inline=False)
-            embed.add_field(name="\U0001f6eb Planes", value=f"{milstats.planes:,}\n", inline=False)
+            embed.add_field(name="🛩️ Planes", value=f"{milstats.planes:,}\n", inline=False)
             embed.add_field(name="\U0001f6e1\ufe0f War Status", value=f"{nation.war_status}\n", inline=False)
+            embed.add_field(name="🪖 Land Doctrine", value=f"{milstats.mil_ground_doctrine}\n", inline=False)
+            embed.add_field(name="🛫 Air Doctrine", value=f"{milstats.mil_air_doctrine}\n", inline=False)
 
             await ctx.send(embed=embed)
 

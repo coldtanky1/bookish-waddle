@@ -8,12 +8,20 @@ class Create(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def create(self, ctx, nation_name: str = ""):
+    async def create(self, ctx, *args: str):
         id = ctx.author.id
+
+        nation_name = ' '.join(args)
 
         if nation_name == "":
             embed = discord.Embed(colour=0xEF2F73, title="Error", type='rich',
                                   description=f'Please provide a nation name.')
+            await ctx.send(embed=embed)
+            return
+
+        if len(nation_name) > 25:
+            embed = discord.Embed(colour=0xEF2F73, title="Error", type='rich',
+                                  description=f'Your nation name cannot be longer than 25 characters.')
             await ctx.send(embed=embed)
             return
 

@@ -1,3 +1,4 @@
+from typing import Text
 from peewee import ForeignKeyField, IntegerField, Model, SqliteDatabase, TextField
 
 db = SqliteDatabase("game.db")
@@ -31,10 +32,9 @@ class Mil(BaseModel):
     recruiting_time_left = IntegerField(default=0) # this is to ensure that if the bot stops running, the player doesn't have to wait or recruit again.
     in_recruitment = IntegerField(default=0)
 
-    military_tactic = TextField(default="")
-
     # bonuses
-    mil_tactic_bonus = IntegerField(default=1)
+    mil_ground_doctrine = TextField(default="Mobile Warfare")
+    mil_air_doctrine = TextField(default="Strategic Destruction")
     admin_mil_tactic_bonus = IntegerField(default=1)
 
 class Infra(BaseModel):
