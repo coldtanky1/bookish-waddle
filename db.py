@@ -1,5 +1,4 @@
-from typing import Text
-from peewee import ForeignKeyField, IntegerField, Model, SqliteDatabase, TextField
+from peewee import IntegerField, Model, SqliteDatabase, TextField
 
 db = SqliteDatabase("game.db")
 

@@ -1,0 +1,15 @@
+{
+  "iron_ore":    { "buy": 12, "sell": 8 },
+  "coal":        { "buy": 12, "sell": 8 },
+  "oil":         { "buy": 20, "sell": 14 },
+  "wood":        { "buy": 10, "sell": 6 },
+  "grain":       { "buy": 8,  "sell": 5 },
+  "water":       { "buy": 5,  "sell": 2 },
+  "steel":           { "buy": 40, "sell": 30 },
+  "planks":          { "buy": 25, "sell": 18 },
+  "flour":           { "buy": 18, "sell": 12 },
+  "processed_food":  { "buy": 30, "sell": 22 },
+  "petrol":          { "buy": 35, "sell": 26 },
+  "concrete":        { "buy": 28, "sell": 20 },
+  "electronics":     { "buy": 50, "sell": 35 }
+}
